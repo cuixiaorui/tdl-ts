@@ -1,0 +1,36 @@
+{
+  "name": "tdl-ts",
+  "version": "1.0.0",
+  "description": "test driver learn typescript",
+  "main": "index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:w": "tsc -w",
+    "test": "tsd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuixiaorui/tdl-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuixiaorui/tdl-ts/issues"
+  },
+  "homepage": "https://github.com/cuixiaorui/tdl-ts#readme",
+  "dependencies": {
+    "tsd": "^0.13.1"
+  },
+  "tsd": {
+    "directory": "test-dts",
+    "compilerOptions": {
+      "strict": false,
+      "lib": [
+        "esnext",
+        "dom"
+      ]
+    }
+  }
+}

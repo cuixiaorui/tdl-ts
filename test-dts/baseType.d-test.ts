@@ -23,9 +23,9 @@ describe("基础类型", () => {
       expectType<void>(getVal());
     });
 
-    describe("void 只能赋值 undefined", () => {
+    describe("void 能赋值给 undefined 和 null", () => {
       expectType<void>(undefined);
-      expectError<void>(null);
+      expectType<void>(null);
     });
   });
 
@@ -39,5 +39,17 @@ describe("基础类型", () => {
     const undefinedVal: undefined = undefined;
     expectType<undefined>(undefinedVal);
     expectError<null>(undefinedVal);
+  });
+
+  describe("undefined 和 null 是所有类型的子类型", () => {
+    expectType<number>(undefined);
+    expectType<string>(undefined);
+    expectType<boolean>(undefined);
+    expectType<void>(undefined);
+
+    expectType<number>(null);
+    expectType<string>(null);
+    expectType<boolean>(null);
+    expectType<void>(null);
   });
 });

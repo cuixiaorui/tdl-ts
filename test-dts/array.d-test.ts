@@ -27,4 +27,35 @@ describe("数组", () => {
 
     const items: items = [1, 2, 3];
   });
+
+  describe("用接口表示类数组", () => {
+    describe("类数组不能用普通的数组类型来约束", () => {
+      function sum() {
+        // 报错，因为 arguments 是类数组
+        let args: number[] = arguments;
+      }
+    });
+
+    describe("接口表示类数组", () => {
+      function sum() {
+        // 报错，因为 arguments 是类数组
+        let args: {
+          [index: number]: number;
+          length: number;
+          callee: Function;
+        } = arguments;
+      }
+    });
+
+    describe("用原生提供的类数组类型", () => {
+      function sum() {
+        // 这里的 IArguments 其实和我们上面写的那个一样
+        let args: IArguments = arguments;
+      }
+    });
+  });
+
+  describe("any[] 表示任意类型的数组", () => {
+    const items: any[] = [1, 2, "3", "4", true];
+  });
 });

@@ -27,4 +27,9 @@ describe("never", () => {
       throw new Error("Not Implemented");
     }
   });
+  it("永远没有相交的类型：", () => {
+    // human 是个 never 类型
+    type human = "boy" & "girl";
+  });
 });
+

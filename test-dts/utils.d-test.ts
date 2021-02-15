@@ -1,5 +1,5 @@
 describe("泛型工具", () => {
-  it("Partical", () => {
+  it("Partial", () => {
     // 此工具的作用就是将泛型中全部属性变为可选的。
 
     type Dog = {
@@ -9,12 +9,12 @@ describe("泛型工具", () => {
 
     // 实现的方式就是遍历 T 类型，keyof T 得到 T 类型的 key，然后用 in 来遍历，给增加一个 ? 表示是可选的
     // value 就是之前的类型 T[key] -> 获取之前的类型
-    type Partical<T> = {
+    type Partial<T> = {
       [key in keyof T]?: T[key];
     };
 
-    // 用 Partical 包裹后，Dog 里面所有的 key 都变成可选的了
-    const dog: Partical<Dog> = {};
+    // 用 Partial 包裹后，Dog 里面所有的 key 都变成可选的了
+    const dog: Partial<Dog> = {};
   });
 
   it("Record", () => {

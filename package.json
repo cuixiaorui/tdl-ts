@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/cuixiaorui/tdl-ts#readme",
   "dependencies": {
+    "@type-challenges/utils": "^0.1.1",
     "tsd": "^0.13.1"
   },
   "tsd": {

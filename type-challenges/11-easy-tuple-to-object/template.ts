@@ -1,14 +1,22 @@
-type TupleToObject<T extends readonly any[]> = {
-  [P in keyof T]: P;
+type TupleToObject<T extends readonly (string | number | symbol)[]> = {
+  [P in T[number]]: P;
 };
 
-type aa = typeof tuple[number];
-
-type value = TupleToObject<typeof tuple>;
-
 const tuple = ["tesla", "model 3", "model X", "model Y"] as const;
-type r = typeof tuple;
 
-// 知识点
-// 遍历数组（tuple）
-// typeof
+// keyof array -> 索引
+type r = TupleToObject<typeof tuple>;
+
+// js
+function tupleToObject(array) {
+  const obj = {};
+
+  array.forEach((val) => {
+    obj[val] = val;
+  });
+
+  return obj;
+}
+
+// 1. 返回一个对象
+// 2. 遍历 array  T[number]
